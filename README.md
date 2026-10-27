@@ -69,8 +69,8 @@ Measured on a Mega STE at 8 MHz with the card's T425 drawing (details: [docs/MEA
 | ST RAM | 17 KB for a 100×40 grid; the font and the T425 program are in the program file |
 
 What makes it cheap: the 68000 only writes raw values; the T425 compares, formats, scales and draws
-in its own time, on its own memory. The bus is not the cost; formatting on the 68000 is, which is
-what slots move to the card. Measuring still has a price: in a scripted run of Wings of Fury the debug
+in its own time, on its own memory. The bus write itself is cheap; what used to cost was formatting
+the numbers on the 68000, and slots hand that to the T425. Measuring still has a price: in a scripted run of Wings of Fury the debug
 build had 122 late frames of 3698 against 80 of 3713 without it, so compare builds with the debug
 screen against each other.
 

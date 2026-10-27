@@ -10,7 +10,8 @@ stated otherwise. Not measured on a TT.
 | a word written to ST RAM | 3.8 µs |
 | a word written to the card's grid over VME | 4.4 µs |
 
-The bus is not the cost: formatting numbers on the 68000 is.
+The bus write itself is cheap. What cost time was formatting the numbers on the 68000 (the table
+below), which is why slots hand the formatting to the T425.
 
 ## The demo, about 140 values a frame, formatted by the 68000
 
