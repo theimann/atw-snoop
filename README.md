@@ -11,6 +11,14 @@ little more than one bus write per value.
 *Left: Wings of Fury on the Mega STE's own screen. Right: the same frames measured live on the
 ATW800/2. Video: [atari.love/atw-snoop](https://www.atari.love/atw-snoop/)*
 
+## Inspiration
+
+The idea of letting the card's T425 do the drawing comes from
+[MATRIX-T425](https://github.com/stephane-perez/atw800-matrix-demo) by Stéphane Perez: a "Matrix" rain
+on the ATW800/2 in which the 68000 only uploads a small program and the transputer renders everything
+by itself. That demo showed what the T425 can do on this card; atw-snoop turns the idea into a debug
+screen. Its T425 assembler and emulator are the base of the tools in `t425/`.
+
 ## What it does
 
 - **A second screen that costs almost nothing.** The 68000 writes raw values into the card's
@@ -128,8 +136,9 @@ draws), `f` / `c` (Mega STE at 16 MHz without / with the cache). Ctrl+Q ends it.
 ## Credits and licences
 
 - atw-snoop: MIT licence ([LICENSE](LICENSE)).
-- `t425/tasm.py` and `t425/temu.py` are based on the T425 assembler and emulator of
-  [atw800-matrix-demo](https://github.com/stephane-perez/atw800-matrix-demo) by Stéphane Perez
-  (MIT, [t425/LICENSE.matrix](t425/LICENSE.matrix)).
+- The idea of rendering on the T425, and the T425 assembler and emulator that `t425/tasm.py` and
+  `t425/temu.py` are based on: [MATRIX-T425](https://github.com/stephane-perez/atw800-matrix-demo) by
+  Stéphane Perez (MIT, [t425/LICENSE.matrix](t425/LICENSE.matrix)).
+- The ATW800/2 card: Axel Muhr, [GeekDot](https://www.geekdot.com/atw800_2/).
 - Terminus font by Dimitar Toshkov Zhekov, SIL Open Font Licence 1.1 ([fonts/OFL.TXT](fonts/OFL.TXT)).
 - Written with Claude Code.
