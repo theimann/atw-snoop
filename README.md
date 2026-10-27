@@ -15,6 +15,13 @@ little more than one bus write per value.
 *Left: Wings of Fury on the Mega STE's own screen. Right: the same frames measured live on the
 ATW800/2. Video: [atari.love/atw-snoop](https://www.atari.love/atw-snoop/)*
 
+## The ATW800/2
+
+atw-snoop exists because of the [ATW800/2](https://www.geekdot.com/atw800_2/), a Transputer graphics
+card for the Atari by Axel Muhr ([GeekDot](https://www.geekdot.com/atw800_2/)), with Claus Meder (the
+FPGA graphics core and the T425 core this tool draws with), Wolfgang "Idek" Hiestand (the Nova/xVDI
+drivers) and André Saischowa (the INMOS tools, Helios and the NVDI drivers).
+
 ## What it does
 
 - **A second screen that costs almost nothing.** The 68000 writes raw values into the card's
@@ -139,6 +146,7 @@ draws), `f` / `c` (Mega STE at 16 MHz without / with the cache). Ctrl+Q ends it.
   [MATRIX-T425](https://github.com/stephane-perez/atw800-matrix-demo) by Stéphane Perez; `t425/tasm.py`
   and `t425/temu.py` are based on its T425 assembler and emulator (MIT,
   [t425/LICENSE.matrix](t425/LICENSE.matrix)).
-- The ATW800/2 card: Axel Muhr, [GeekDot](https://www.geekdot.com/atw800_2/).
+- The ATW800/2: Axel Muhr ([GeekDot](https://www.geekdot.com/atw800_2/)), Claus Meder, Wolfgang Hiestand,
+  André Saischowa.
 - Terminus font by Dimitar Toshkov Zhekov, SIL Open Font Licence 1.1 ([fonts/OFL.TXT](fonts/OFL.TXT)).
 - Written with Claude Code.
