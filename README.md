@@ -18,9 +18,13 @@ ATW800/2. Video: [atari.love/atw-snoop](https://www.atari.love/atw-snoop/)*
 ## The ATW800/2
 
 atw-snoop exists because of the [ATW800/2](https://www.geekdot.com/atw800_2/), a Transputer graphics
-card for the Atari by Axel Muhr ([GeekDot](https://www.geekdot.com/atw800_2/)), with Claus Meder (the
-FPGA graphics core and the T425 core this tool draws with), Wolfgang "Idek" Hiestand (the Nova/xVDI
-drivers) and André Saischowa (the INMOS tools, Helios and the NVDI drivers).
+card for the Atari, and the team behind it:
+
+- **Axel Muhr** ([GeekDot](https://www.geekdot.com/atw800_2/)): the card and the project
+- **Claus Meder**: the "Seurat" FPGA graphics core and the T425 core this tool draws with
+- **Wolfgang "Idek" Hiestand**: the Nova drivers for the card (xVDI)
+- **André Saischowa**: the INMOS tools, the Helios server and the NVDI drivers
+- with **Mike Brüstle** ([transputer.net](https://www.transputer.net/)) as the Transputer expert
 
 ## What it does
 
@@ -147,6 +151,6 @@ draws), `f` / `c` (Mega STE at 16 MHz without / with the cache). Ctrl+Q ends it.
   and `t425/temu.py` are based on its T425 assembler and emulator (MIT,
   [t425/LICENSE.matrix](t425/LICENSE.matrix)).
 - The ATW800/2: Axel Muhr ([GeekDot](https://www.geekdot.com/atw800_2/)), Claus Meder, Wolfgang Hiestand,
-  André Saischowa.
+  André Saischowa, with Mike Brüstle.
 - Terminus font by Dimitar Toshkov Zhekov, SIL Open Font Licence 1.1 ([fonts/OFL.TXT](fonts/OFL.TXT)).
 - Written with Claude Code.
