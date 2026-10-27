@@ -1,5 +1,9 @@
 # atw-snoop
 
+**▶ [Video and downloads: atari.love/atw-snoop](https://www.atari.love/atw-snoop/)** ·
+**[Wings of Fury reference build (hard disk, zip)](https://www.atari.love/atw-snoop/wof-atw-snoop.zip)** ·
+**[Demo (zip)](https://github.com/theimann/atw-snoop/releases/latest)**
+
 A live debug screen for Atari programs, on the second video output of an **ATW800/2** graphics
 card. The program keeps its own screen; atw-snoop shows what it is doing
 on the card's HDMI output at the same time: timings, counters, memory, a log. The card's own
@@ -92,8 +96,11 @@ a Mega STE.
 A complete example of the method in a real game, **tested on a Mega STE with TOS 2.06 only**: a
 reference build of the Mega STE version of Wings of Fury ([source](https://github.com/theimann/wings-of-fury-atari-ste), branch `atw-snoop`), ready to run
 from a hard disk. It is a showcase of atw-snoop, not a release of the game (the game itself:
-[atari.love/wof](https://www.atari.love/wof/)). Download: the release page of this repository, or
-[atari.love/atw-snoop](https://www.atari.love/atw-snoop/).
+[atari.love/wof](https://www.atari.love/wof/)). Download:
+[wof-atw-snoop.zip](https://www.atari.love/atw-snoop/wof-atw-snoop.zip) from
+[atari.love/atw-snoop](https://www.atari.love/atw-snoop/). The zip is not covered by this repository's
+MIT licence: the game's data is © Brøderbund, and the program contains AGT (Atari Game Tools by dml)
+under its own terms.
 
 The reference build shows a frame profile on the card: 18 code sections between profile markers,
 each with a live bar and its current, average and worst time, the frame's busy time against the
