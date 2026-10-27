@@ -52,6 +52,26 @@ card for the Atari, and the team behind it:
 - **Not tested:** the **TT** (68030, TOS 3.0x), other TOS versions on the Mega STE, and the reference
   build with the xVDI desktop.
 
+## Performance cost
+
+Measured on a Mega STE at 8 MHz with the card's T425 drawing (details: [docs/MEASUREMENTS.md](docs/MEASUREMENTS.md)):
+
+| What | Cost |
+|---|---|
+| a word written into the card over VME | 4.4 µs (3.8 µs to ST RAM) |
+| a value shown every frame through a slot (`snoop_set`) | one long write: two VME words |
+| formatting on the 68000 instead (the demo, ~140 values a frame) | 5.1 ms a frame (2.8 ms at 16 MHz with the cache) |
+| reading the clock (`snoop_clock`) plus storing it, per profile marker | about 20 µs |
+| a complete frame profile in a game (Wings of Fury: 18 sections, ~25 values) | about 0.8 ms a frame, 1.3 % of its 60 ms frame |
+| without a card, calls guarded by `if (snoop_mode)` | one test a frame |
+| ST RAM | 17 KB for a 100×40 grid; the font and the T425 program are in the program file |
+
+What makes it cheap: the 68000 only writes raw values; the T425 compares, formats, scales and draws
+in its own time, on its own memory. The bus is not the cost; formatting on the 68000 is, which is
+what slots move to the card. Measuring still has a price: in a scripted run of Wings of Fury the debug
+build had 122 late frames of 3698 against 80 of 3713 without it, so compare builds with the debug
+screen against each other.
+
 ## Requirements
 
 - A Mega STE or TT with an ATW800/2 card in the VME slot (tested: Mega STE, TOS 2.06).
