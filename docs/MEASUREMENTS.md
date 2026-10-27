@@ -38,6 +38,15 @@ numbers every fourth frame), the card formats them:
 
 Each profile marker itself (`snoop_clock()` plus a store) costs about 20 µs.
 
+A second game, Super Cars II (its own engine, its own timer C clock at 12288 Hz fed into scaled slots), pays
+0.55–0.75 ms a frame for its slots and markers.
+
+## The log
+
+`snoop_log()` is not a slot: the 68000 writes the whole line into the grid and moves the log area. Built in a
+frame interrupt it cost up to 4 ms at 16 MHz in Super Cars II, enough to make the next frame late by itself.
+Limit the log to a few lines a second (Super Cars II: two at most) and keep per-frame values in slots.
+
 ## Without a card
 
 Every call returns at once when `snoop_mode` is 0, but the calls still pass their arguments: about 45

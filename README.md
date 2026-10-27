@@ -65,6 +65,8 @@ Measured on a Mega STE at 8 MHz with the card's T425 drawing (details: [docs/MEA
 | formatting on the 68000 instead (the demo, ~140 values a frame) | 5.1 ms a frame (2.8 ms at 16 MHz with the cache) |
 | reading the clock (`snoop_clock`) plus storing it, per profile marker | about 20 µs |
 | a complete frame profile in a game (Wings of Fury: 18 sections, ~25 values) | about 0.8 ms a frame, 1.3 % of its 60 ms frame |
+| the same in a second game (Super Cars II: slots plus markers) | 0.55–0.75 ms a frame |
+| a log line (`snoop_log`: the 68000 writes the whole line and scrolls) | up to 4 ms at 16 MHz: keep it to a few lines a second, never one a frame |
 | without a card, calls guarded by `if (snoop_mode)` | one test a frame |
 | ST RAM | 17 KB for a 100×40 grid; the font and the T425 program are in the program file |
 
