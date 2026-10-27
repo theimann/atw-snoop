@@ -1,7 +1,7 @@
 # Case study: Wings of Fury on the Mega STE
 
 The reference build for atw-snoop: how the method is used in a real game. A showcase, not a release of
-the game.
+the game. Tested on a Mega STE with TOS 2.06 (8 MHz, the card in its own 640×480 mode); not on a TT.
 
 [Wings of Fury](https://github.com/theimann/wings-of-fury-atari-ste) (Amiga, 1990) runs on the STE
 and Mega STE at the original's steady 16.7 frames a second: every frame gets 3 VBLs (60 ms). A frame

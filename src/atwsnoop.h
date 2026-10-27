@@ -1,4 +1,4 @@
-/* atw-snoop: the ATW800/2 in the Mega STE (or TT) as a second screen for debugging. The program keeps the ST's own
+/* atw-snoop: the ATW800/2 in the Mega STE or TT (tested on the Mega STE, TOS 2.06) as a second screen for debugging. The program keeps the ST's own
  * screen; text written here appears on the card's HDMI output. With the card's T425 running the cost is one word
  * write into the card per character written (the T425 draws); without it the 68000 draws, at most
  * snoop_budget cells a snoop_frame() call. No card: every call does nothing (snoop_mode 0).

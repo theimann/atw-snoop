@@ -1,7 +1,7 @@
 # atw-snoop
 
-A live debug screen for Atari Mega STE and TT programs, on the second video output of an
-**ATW800/2** graphics card. The program keeps its own screen; atw-snoop shows what it is doing
+A live debug screen for Atari programs, on the second video output of an **ATW800/2** graphics
+card. The program keeps its own screen; atw-snoop shows what it is doing
 on the card's HDMI output at the same time: timings, counters, memory, a log. The card's own
 processor, a T425 transputer, does the formatting and drawing, so the program under test pays
 little more than one bus write per value.
@@ -25,9 +25,21 @@ ATW800/2. Video: [atari.love/atw-snoop](https://www.atari.love/atw-snoop/)*
 - **Falls back cleanly:** without a working T425 the 68000 draws a few cells a frame; without a
   card every call returns at once, so a debug build runs on any ST.
 
+## The method, and where it has been tested
+
+- **The method** applies to any machine that takes an ATW800/2 in its VME slot: the **Mega STE and
+  the TT**. It relies only on the card (its shared memory and T425) and on MFP timer C, which both
+  machines have.
+- **Tested:** on a **Mega STE with TOS 2.06** only: the library, the demo and the Wings of Fury
+  reference build, at 8 and 16 MHz (cache on and off), with the card in its own 640×480 mode; the
+  demo also with the card as the xVDI desktop. Without a card, also in Hatari (STE, TOS 1.62 and 2.06),
+  where everything runs as without atw-snoop.
+- **Not tested:** the **TT** (68030, TOS 3.0x), other TOS versions on the Mega STE, and the reference
+  build with the xVDI desktop.
+
 ## Requirements
 
-- Mega STE (TOS 2.05/2.06) or TT with an ATW800/2 card in the VME slot.
+- A Mega STE or TT with an ATW800/2 card in the VME slot (tested: Mega STE, TOS 2.06).
 - Started from the desktop with or without the card's xVDI driver: with xVDI the debug grid uses
   the desktop's screen (256 colours) and the desktop redraws itself afterwards; without it the
   library sets the card to 640×480 itself.
@@ -72,8 +84,8 @@ a Mega STE.
 
 ## Reference build: Wings of Fury
 
-A complete example of the method in a real game: a reference build of the Mega STE version of Wings of
-Fury ([source](https://github.com/theimann/wings-of-fury-atari-ste), branch `atw-snoop`), ready to run
+A complete example of the method in a real game, **tested on a Mega STE with TOS 2.06 only**: a
+reference build of the Mega STE version of Wings of Fury ([source](https://github.com/theimann/wings-of-fury-atari-ste), branch `atw-snoop`), ready to run
 from a hard disk. It is a showcase of atw-snoop, not a release of the game (the game itself:
 [atari.love/wof](https://www.atari.love/wof/)). Download: the release page of this repository, or
 [atari.love/atw-snoop](https://www.atari.love/atw-snoop/).
