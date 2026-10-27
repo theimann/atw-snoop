@@ -13,11 +13,8 @@ ATW800/2. Video: [atari.love/atw-snoop](https://www.atari.love/atw-snoop/)*
 
 ## Inspiration
 
-The idea of letting the card's T425 do the drawing comes from
-[MATRIX-T425](https://github.com/stephane-perez/atw800-matrix-demo) by Stéphane Perez: a "Matrix" rain
-on the ATW800/2 in which the 68000 only uploads a small program and the transputer renders everything
-by itself. That demo showed what the T425 can do on this card; atw-snoop turns the idea into a debug
-screen. Its T425 assembler and emulator are the base of the tools in `t425/`.
+Drawing on the card's T425 was inspired by [MATRIX-T425](https://github.com/stephane-perez/atw800-matrix-demo)
+by Stéphane Perez, whose T425 assembler and emulator are the base of `t425/`.
 
 ## What it does
 
