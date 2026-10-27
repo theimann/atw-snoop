@@ -20,7 +20,7 @@ The bus is not the cost: formatting numbers on the 68000 is.
 | tuned writers (row table, hex table, direct writes) | 8 MHz | 5.1 ms |
 | tuned writers | 16 MHz, cache off | 4.6 ms |
 | tuned writers | 16 MHz, cache on | 2.8 ms |
-| on the xVDI desktop, grid 100×40 | 16 MHz, cache off | 4.95 ms |
+| on the xVDI desktop, grid 100×40 (an earlier version) | 16 MHz, cache off | 4.95 ms |
 
 Without pacing, the T425 read the card's memory without pause and the 68000's VME writes waited:
 9.4 ms a frame against 3.2 ms with the 68000 drawing itself. The paced T425 program fixed that.

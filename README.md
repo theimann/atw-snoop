@@ -28,14 +28,14 @@ card for the Atari, and the team behind it:
 
 ## What it does
 
-- **Runs from plain TOS.** No ATW800/2 graphics driver (xVDI, NVDI) needs to be loaded: the library finds
-  the card by itself, boots its T425 and sets the card to 640×480. With the xVDI desktop running it uses
-  the desktop's screen instead.
+- **Runs from plain TOS.** No ATW800/2 graphics driver (xVDI, NVDI) and nothing else resident: the
+  library finds the card by itself, boots its T425 and sets the card to 640×480. Nothing stays in memory
+  to disturb the program being measured, which is what game development wants.
 - **A second screen that costs almost nothing.** The 68000 writes raw values into the card's
   shared memory over VME; the T425 compares, formats and draws. A value shown every frame is one
   long write (about 9 µs at 8 MHz).
-- **Text grid on the card:** 80×30 cells in the card's own 640×480 mode, or 100×40 on the xVDI
-  desktop; 16 colours; Terminus 8×16 font; bars, a sweep graph, a scrolling log.
+- **Text grid on the card:** 80×30 cells in the card's own 640×480 mode; 16 colours; Terminus 8×16
+  font; bars, a sweep graph, a scrolling log.
 - **Slots:** a field defined once (hex, decimal, bar, bytes) and fed raw values; decimal slots can
   scale (e.g. timer counts shown as microseconds) without any multiply or divide on the 68000.
 - **A clock for timing code:** MFP timer C at 38400 counts a second (26 µs), safe to read at any
@@ -48,12 +48,11 @@ card for the Atari, and the team behind it:
 - **The method** applies to any machine that takes an ATW800/2 in its VME slot: the **Mega STE and
   the TT**. It relies only on the card (its shared memory and T425) and on MFP timer C, which both
   machines have.
-- **Tested:** on a **Mega STE with TOS 2.06** only: the library, the demo and the Wings of Fury
-  reference build, at 8 and 16 MHz (cache on and off), with the card in its own 640×480 mode; the
-  demo also with the card as the xVDI desktop. Without a card, also in Hatari (STE, TOS 1.62 and 2.06),
-  where everything runs as without atw-snoop.
-- **Not tested:** the **TT** (68030, TOS 3.0x), other TOS versions on the Mega STE, and the reference
-  build with the xVDI desktop.
+- **Tested:** on a **Mega STE with TOS 2.06 under plain TOS** (no card driver loaded) only: the
+  library, the demo and the Wings of Fury reference build, at 8 and 16 MHz (cache on and off). Without
+  a card, also in Hatari (STE, TOS 1.62 and 2.06), where everything runs as without atw-snoop.
+- **Not tested:** the **TT** (68030, TOS 3.0x), other TOS versions on the Mega STE, and the current
+  version with the xVDI desktop running (see below).
 
 ## Performance cost
 
@@ -78,11 +77,12 @@ screen against each other.
 ## Requirements
 
 - A Mega STE or TT with an ATW800/2 card in the VME slot (tested: Mega STE, TOS 2.06).
-- Plain TOS: no card driver needed (tested that way: the Wings of Fury reference build and the demo,
-  started from the desktop or the hard disk with no ATW800/2 driver loaded). The library sets the card
-  to 640×480 itself and switches its output off at the end.
-- Optional: with the card's xVDI driver running, the debug grid uses the desktop's screen (256 colours,
-  100×40) and the desktop redraws itself afterwards (tested with the demo).
+- Plain TOS: no card driver, nothing resident (tested that way: the Wings of Fury reference build and
+  the demo, started from the desktop or the hard disk). The library sets the card to 640×480 itself
+  and switches its output off at the end.
+- Not the intended use: with the card's xVDI driver running, the library borrows the desktop's screen
+  (256 colours, 100×40) and the desktop redraws itself afterwards. Only an earlier version of the demo
+  was tried that way; the current version and the reference build were not.
 - To build: `m68k-atari-mint-gcc` (gcc 4.6 cross compiler) and Python 3 for the T425 program.
   The generated T425 program is in the repository, so a project that only uses the library
   needs no Python.

@@ -48,7 +48,8 @@ microseconds, so the 68000 never multiplies or divides for the display.
 
 ## Finding the card
 
-- With the card's xVDI driver, the desktop's screen address is the card's: atw-snoop borrows that
+- Under plain TOS (the intended and tested way) the card is found by its id, see below. With the card's
+  xVDI driver running (only an earlier version tried that), the desktop's screen address is the card's: atw-snoop borrows that
   page (256 colours, grid up to 100×40, LUT entries 240–255 borrowed and given back). The desktop
   redraws itself when the program ends.
 - Without xVDI the card is found by its id at $A00000 or $C00000 (each probe guarded against a bus
