@@ -28,6 +28,9 @@ card for the Atari, and the team behind it:
 
 ## What it does
 
+- **Runs from plain TOS.** No ATW800/2 graphics driver (xVDI, NVDI) needs to be loaded: the library finds
+  the card by itself, boots its T425 and sets the card to 640×480. With the xVDI desktop running it uses
+  the desktop's screen instead.
 - **A second screen that costs almost nothing.** The 68000 writes raw values into the card's
   shared memory over VME; the T425 compares, formats and draws. A value shown every frame is one
   long write (about 9 µs at 8 MHz).
@@ -75,9 +78,11 @@ screen against each other.
 ## Requirements
 
 - A Mega STE or TT with an ATW800/2 card in the VME slot (tested: Mega STE, TOS 2.06).
-- Started from the desktop with or without the card's xVDI driver: with xVDI the debug grid uses
-  the desktop's screen (256 colours) and the desktop redraws itself afterwards; without it the
-  library sets the card to 640×480 itself.
+- Plain TOS: no card driver needed (tested that way: the Wings of Fury reference build and the demo,
+  started from the desktop or the hard disk with no ATW800/2 driver loaded). The library sets the card
+  to 640×480 itself and switches its output off at the end.
+- Optional: with the card's xVDI driver running, the debug grid uses the desktop's screen (256 colours,
+  100×40) and the desktop redraws itself afterwards (tested with the demo).
 - To build: `m68k-atari-mint-gcc` (gcc 4.6 cross compiler) and Python 3 for the T425 program.
   The generated T425 program is in the repository, so a project that only uses the library
   needs no Python.
