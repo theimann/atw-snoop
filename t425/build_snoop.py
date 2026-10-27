@@ -28,7 +28,7 @@ the grid scan then draws them like any other cell. Fixed fields: a decimal too l
 digits.
 The passes are paced: without a pause the T425 read the card's memory without end, and the 68000's word writes
 over VME waited for it (Mega STE: ATWSNOOP's calls 9.4 ms a frame against 3.2 ms with the 68000 drawing).
-The wait spins on ldtimer in the T425's cache (tin never wakes on the card, build_rain.py).
+The wait spins on ldtimer in the T425's cache (tin never wakes on the card).
 The card's T425 caches its own RAM (measured on the card): it reads 64 KB elsewhere before each pass, or it
 would go on seeing the grid as it was. Tools: tasm.py (assembler), t425base.py (memory map, boot loader), temu.py (emulator for the tests).
 """
